@@ -31,6 +31,31 @@ class Student:
         res = f"Имя:  {self.name} \nФамилия: {self.surname} \nCредняя оценка за домашние задания: {self.average_grade()} \nКурсы в процессе изучения: {self.courses_in_progress} \nЗавершенные курсы: {self.finished_courses}"
         return res
 
+    def __lt__(self, other):
+        if self.average_grade() < other.average_grade():
+            return print(
+                f"Все верно, средняя оценка {self.name} {self.surname} меньше чем средняя оценка{other.name} {other.surname}")
+        if self.average_grade() >= other.average_grade():
+            return print("Сравнение неверно")
+
+    def __gt__(self, other):
+        if self.average_grade() > other.average_grade():
+            return print(
+                f"Все верно, средняя оценка {self.name} {self.surname} больше, чем средняя оценка{other.name} {other.surname}")
+        if self.average_grade() <= other.average_grade():
+            return print("Сравнение неверно")
+
+    def __eq__(self, other):
+        if self.average_grade() == other.average_grade():
+            return print(
+                f"Все верно, средняя оценка {self.name} {self.surname} такая же, как средняя оценка{other.name} {other.surname}")
+        if self.average_grade() > other.average_grade():
+            return print(
+                f" Средняя оценка {self.name} {self.surname} больше, чем средняя оценка{other.name} {other.surname}")
+        if self.average_grade() < other.average_grade():
+            return print(
+                f"Средняя оценка {self.name} {self.surname} меньше, чем средняя оценка{other.name} {other.surname}")
+
 
 class Mentor:
     def __init__(self, name, surname):
@@ -56,6 +81,31 @@ class Lecturer(Mentor):
     def __str__(self):
         res = f"Имя:  {self.name} \nФамилия: {self.surname} \nCредняя оценка за лекции: {self.average_grade()}"
         return res
+
+    def __lt__(self, other):
+        if self.average_grade() < other.average_grade():
+            return print(
+                f"Все верно, средняя оценка {self.name} {self.surname} меньше чем средняя оценка{other.name} {other.surname}")
+        if self.average_grade() >= other.average_grade():
+            return print("Сравнение неверно")
+
+    def __gt__(self, other):
+        if self.average_grade() > other.average_grade():
+            return print(
+                f"Все верно, средняя оценка {self.name} {self.surname} больше, чем средняя оценка{other.name} {other.surname}")
+        if self.average_grade() <= other.average_grade():
+            return print("Сравнение неверно")
+
+    def __eq__(self, other):
+        if self.average_grade() == other.average_grade():
+            return print(
+                f"Все верно, средняя оценка {self.name} {self.surname} такая же, как средняя оценка{other.name} {other.surname}")
+        if self.average_grade() > other.average_grade():
+            return print(
+                f" Средняя оценка {self.name} {self.surname} больше, чем средняя оценка{other.name} {other.surname}")
+        if self.average_grade() < other.average_grade():
+            return print(
+                f"Средняя оценка {self.name} {self.surname} меньше, чем средняя оценка{other.name} {other.surname}")
 
 
 class Reviewer(Mentor):
@@ -145,3 +195,11 @@ print(lector_1)
 print(lector_2)
 print(reviewer_1)
 print(reviewer_2)
+
+student_2 < student_1
+student_1 > student_2
+student_2 == student_1
+
+lector_2 > lector_1
+lector_2 < lector_1
+lector_1 == lector_2
